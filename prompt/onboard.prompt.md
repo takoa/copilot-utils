@@ -27,8 +27,9 @@ Then, you MUST organize and document the gathered information clearly and concis
 
 When documenting:
 - You MUST create the necessary instruction files and directories if not exist.
+- You MUST preserve the existing contents and structure as much as possible unless explicitly instructed otherwise.
 - You MUST add newly found information.
-- You MUST update outdated information but preserve the existing contents and structure as much as possible unless explicitly instructed otherwise.
+- You MUST update outdated information.
 - You MUST remove the contents that are no longer relevant.
 - You MUST NOT include any "changelogs" and only focus on the current state of the project.
 
@@ -38,9 +39,10 @@ Also:
 - You MUST update `.gitignore` to ignore the `.instructions/` directory.
 
 To achieve the goal described above:
-- You MUST plan the necessary steps using `#tool:agent/runSubagent` with the "Plan" agent and create a TODO list using - #tool:todo .
-- You MUST execute every #tool:todo item using `#tool:agent/runSubagent`.
+- You MUST plan the necessary steps using #tool:agent/runSubagent with the "Plan" agent and create a TODO list using #tool:todo .
+    - Keep each TODO item focused; avoid combining multiple tasks into one item.
+- You MUST execute every #tool:todo item using #tool:agent/runSubagent .
 - You MUST NOT stop until the generation or updating is sufficiently completed.
-- You MUST ask the user for clarifications using `#tool:vscode/askQuestions` when necessary or blocked.
-- You MUST use `#tool:web/fetch` to understand any unfamiliar code, versions, frameworks, or libraries.
+- You MUST ask the user for clarifications using #tool:vscode/askQuestions when necessary or blocked.
+- You MUST use #tool:web/fetch to understand any unfamiliar code, versions, frameworks, or libraries.
 - You MUST avoid using `sed`, `python`, and any other tools with editing capabilities unless absolutely necessary.
