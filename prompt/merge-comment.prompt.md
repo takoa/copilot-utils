@@ -9,7 +9,7 @@ Your goal is to generate a squash merge comment for the active pull request.
 First, you MUST retrieve the diffs of the PR; the methods are ordered by priority, so try them in order:
 1. Use #tool:github.vscode-pull-request-github/activePullRequest to get the pull request associated with the current branch, and obtain its diffs.
 2. Use `gh` command to get the pull request associated with the current branch, and obtain its diffs.
-3. Use `git` to identify the diffs between the current branch. If the base branch is not provided, use #tool:vscode/askQuestions to ask for it.`
+3. Use `git` to identify the diffs between the current branch. If the base branch is not provided, use #tool:vscode/askQuestions to ask for it.
 
 Once you retrieve the diffs, you MUST deeply analyze them; then, generate a bulleted list summarizing the key changes made in the pull request, following the guidelines below:
 - Make each item as short as possible, and keep it under 10 words at most.
