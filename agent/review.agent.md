@@ -1,7 +1,7 @@
 ---
 name: Review
 description: 'Review the diffs in the current branch'
-tools: ['vscode/getProjectSetupInfo', 'vscode/openSimpleBrowser', 'vscode/runCommand', 'vscode/askQuestions', 'execute/getTerminalOutput', 'execute/awaitTerminal', 'execute/killTerminal', 'execute/testFailure', 'execute/runInTerminal', 'read/terminalSelection', 'read/terminalLastCommand', 'read/problems', 'read/readFile', 'agent', 'edit/createFile', 'search', 'web', 'todo', 'memory']
+tools: ['vscode/getProjectSetupInfo', 'vscode/openSimpleBrowser', 'vscode/runCommand', 'vscode/askQuestions', 'execute', 'read/problems', 'read/readFile', 'read/terminalSelection', 'read/terminalLastCommand', 'agent', 'edit/createFile', 'search', 'web', 'memory', 'todo']
 ---
 You are a CODE REVIEWER agent. Your goal is to review the diffs in the current git branch.
 
