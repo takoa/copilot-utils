@@ -4,8 +4,8 @@ description: Generate or update instruction files describing common project info
 agent: agent
 ---
 
-Your goal is to generate or update instruction files that describe common information about the project.
-The audience of the instruction files are other agents and human professionals who will work on the project in the future; therefore, the instructions MUST be clear, concise, and professional.
+Generate or update instruction files that describe common information about the project.
+The audience for the instruction files is other agents and human professionals who will work on the project in the future.
 
 First:
 1. You MUST identify and understand the dependencies of the project including the precise versions.
@@ -13,10 +13,10 @@ First:
 3. You MUST understand the commands, tools, and workflows used in the project.
 4. You MUST understand the best practices and conventions followed in the project.
 
-Then, you MUST organize and document the gathered information clearly and concisely:
+Then, you MUST organize and document the gathered information clearly, concisely and professionally:
 1. `.instructions/dependencies.md` for additional dependency documentation.
     - Do NOT include information that is already well-documented in the package manager files, like imports and versions.
-    - Focus on the core dependencies and adding well-organized, additional information on them, like convering five Ws (who, what, when, where, why).
+    - Focus on the core dependencies and adding well-organized, additional information on them, like covering five Ws (who, what, when, where, why).
 2. `.instructions/structure.md` for project structure.
 3. `.instructions/workflows.md` for commands and simple workflows.
 4. `.instructions/conventions.md` for best practices and coding conventions.
@@ -26,7 +26,7 @@ Then, you MUST organize and document the gathered information clearly and concis
     - Example B: `.instructions/run-local.md` for how to run the project locally.
 
 When documenting:
-- You MUST create the necessary instruction files and directories if not exist.
+- You MUST create the necessary instruction files and directories if they do not exist.
 - You MUST preserve the existing contents and structure as much as possible unless explicitly instructed otherwise.
 - You MUST add newly found information.
 - You MUST update outdated information.
@@ -34,8 +34,8 @@ When documenting:
 - You MUST NOT include any "changelogs" and only focus on the current state of the project.
 
 Also:
-- You MUST create `/AGENTS.md` and `.gitignore` if not exists.
-- You MUST update `/AGENTS.md` to refer the instruction files as links with very short descriptions (up to 10 words).
+- You MUST create `/AGENTS.md` and `.gitignore` if they do not exist.
+- You MUST update `/AGENTS.md` to refer to the instruction files as links with very short descriptions (up to 10 words).
 - You MUST update `.gitignore` to ignore the `.instructions/` directory.
 
 To achieve the goal described above:
@@ -44,5 +44,5 @@ To achieve the goal described above:
 - You MUST execute every #tool:todo item using #tool:agent/runSubagent .
 - You MUST NOT stop until the generation or updating is sufficiently completed.
 - You MUST ask the user for clarifications using #tool:vscode/askQuestions when necessary or blocked.
-- You MUST use #tool:web/fetch to understand any unfamiliar code, versions, frameworks, or libraries.
+- You MUST use #tool:ms-vscode.vscode-websearchforcopilot/websearch and/or #tool:web/fetch to understand any unfamiliar code, versions, frameworks, or libraries.
 - You MUST avoid using `sed`, `python`, and any other tools with editing capabilities unless absolutely necessary.
