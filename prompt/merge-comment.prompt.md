@@ -1,18 +1,22 @@
 ---
 name: merge-comment
-description: Generate squash merge comment for PR
-agent: agent
+description: Generate squash-merge comment for active PR
 ---
 
-Generate a squash merge comment for the active pull request.
+Generate a squash merge comment for the active pull request (associated with the current branch).
 
-First, you MUST retrieve the diffs of the PR; attempt the following methods in order of priority:
-1. Use #tool:github.vscode-pull-request-github/activePullRequest to get the pull request associated with the current branch, and obtain its diffs.
-2. Use `gh` command to get the pull request associated with the current branch, and obtain its diffs.
-3. Use `git` to identify the diffs between the current branch. If the base branch is not provided, use #tool:vscode/askQuestions to ask for it.
+First, you MUST retrieve the diffs of the active pull request; attempt the following methods in order of priority:
 
-Once you retrieve the diffs, you MUST deeply analyze them; then, generate a bulleted list summarizing the key changes made in the pull request, following the guidelines below:
+1. Use #tool:github.vscode-pull-request-github/activePullRequest to get the active pull request and obtain its final diffs.
+2. Use `gh` command to get the active pull request and obtain its final diffs.
+3. Use `git` to identify the diffs between the current branch and its base branch. If the base branch is not provided, use #tool:vscode/askQuestions to ask for it.
+
+You MUST focus on the final diffs of the active pull request, not on all changes made in the branch (like intermediate commits or local uncommitted changes).
+
+Once you have retrieved the final diffs, you MUST thoroughly analyze them. Then, generate a summary as a bulleted list following the guidelines below:
 - Keep items as short as possible and strictly under 10 words.
+    - Prefer common words (like "add", "update", "edit", etc.) and common signs ("+", "-", etc).
+- Keep the number of items minimal while covering all significant changes.
 - Group related changes into a single item when possible.
     - Good example: Add /new/path spec, implementation & tests
     - Bad example: Add /new/path spec; Add /new/path implementation; Add /new/path tests (in three bullets)
@@ -20,7 +24,8 @@ Once you retrieve the diffs, you MUST deeply analyze them; then, generate a bull
     - Example: Fix typos
 - State facts only; omit opinions.
 - Do NOT use any emojis.
-- Report the final merge comment in markdown format as a code snippet.
+- Do NOT include anything other than the final diffs of the active pull request.
+- Report the final merge comment in Markdown format as a code snippet.
     - Surround the merge comment output with triple backticks (```).
     - The bullet sign MUST be `-` (followed by a space).
 - Report anything noteworthy you find during the analysis as notes; do NOT mix them with the merge comment output.
