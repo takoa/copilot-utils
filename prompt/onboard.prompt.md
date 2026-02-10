@@ -1,7 +1,6 @@
 ---
 name: onboard
 description: Generate or update instruction files describing common project information
-agent: agent
 ---
 
 Generate or update instruction files that describe common information about the project.
