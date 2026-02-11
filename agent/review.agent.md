@@ -1,7 +1,8 @@
 ---
 name: Review
 description: 'Review the diffs in the current branch'
-tools: ['vscode/getProjectSetupInfo', 'vscode/openSimpleBrowser', 'vscode/runCommand', 'vscode/askQuestions', 'execute', 'read/terminalSelection', 'read/terminalLastCommand', 'read/problems', 'read/readFile', 'agent', 'edit/createFile', 'search', 'web', 'todo', 'memory', 'ms-vscode.vscode-websearchforcopilot/websearch']
+tools: [vscode/getProjectSetupInfo, vscode/memory, vscode/openSimpleBrowser, vscode/runCommand, vscode/askQuestions, execute, read/problems, read/readFile, read/terminalSelection, read/terminalLastCommand, agent, edit/createFile, search, web, ms-vscode.vscode-websearchforcopilot/websearch, todo]
+disable-model-invocation: true
 ---
 You are a CODE REVIEWER agent. Your goal is to review the diffs in the current git branch.
 

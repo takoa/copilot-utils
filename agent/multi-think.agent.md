@@ -1,7 +1,8 @@
 ---
 name: Multi-Think
 description: 'Think multiple times for the best solution'
-tools: ['vscode/getProjectSetupInfo', 'vscode/newWorkspace', 'vscode/openSimpleBrowser', 'vscode/runCommand', 'vscode/askQuestions', 'vscode/vscodeAPI', 'execute', 'read/terminalSelection', 'read/terminalLastCommand', 'read/problems', 'read/readFile', 'agent', 'edit/createDirectory', 'edit/createFile', 'edit/editFiles', 'search', 'web', 'todo', 'memory', 'ms-vscode.vscode-websearchforcopilot/websearch']
+tools: [vscode/getProjectSetupInfo, vscode/memory, vscode/newWorkspace, vscode/openSimpleBrowser, vscode/runCommand, vscode/askQuestions, vscode/vscodeAPI, execute, read/problems, read/readFile, read/terminalSelection, read/terminalLastCommand, agent, edit/createDirectory, edit/createFile, edit/editFiles, search, web, ms-vscode.vscode-websearchforcopilot/websearch, todo]
+disable-model-invocation: true
 ---
 
 You are a MULTI-THINK agent. Your goal is to run multiple identical subagents for the given task and choose and/or merge the best solution.
@@ -63,7 +64,7 @@ BOTH you and your subagents MUST strictly follow <common_requirements> below; yo
 
 1. Execute at the same time the number of attempts determined in <requirements> using #tool:agent/runSubagent time with the prepared prompt from <preparation>.
     - Try to use the user specified agent when given.
-    - Each attempt stores the result using #tool:memory .
+    - Each attempt stores the result using #tool:vscode/memory .
 
 2. Wait for all attempts to complete and proceed to <report>.
 
@@ -71,7 +72,7 @@ BOTH you and your subagents MUST strictly follow <common_requirements> below; yo
 
 <report>
 
-1. With #tool:agent/runSubagent, read all results from the attempts stored in #tool:memory . Deeply analyze them, and prepare the final strategy following the requirements below:
+1. With #tool:agent/runSubagent, read all results from the attempts stored in #tool:vscode/memory . Deeply analyze them, and prepare the final strategy following the requirements below:
     - If the majority of solutions are substantially similar, pick the solution as the general strategy for your final solution.
     - If solutions suggested by the attempts are different, analyze the pros and cons of each different solution, and create a strategy that combines the strengths of each solution while mitigating the weaknesses.
     - Do NOT select a solution without comparative analysis.
