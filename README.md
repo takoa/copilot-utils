@@ -12,12 +12,15 @@ If you are engineering professionally, chances are you do not want those AI-cent
 The agents and prompts in this project attempt to address these challenges while adding more value to GitHub Copilot.
 
 ## Dependencies
-- `memory`: required by Multi-Think. [Stable](vscode-insiders://settings/github.copilot.chat.copilotMemory.enabled) [Insiders](vscode-insiders://settings/github.copilot.chat.copilotMemory.enabled)
+- Custom Agents in Subagents: [Stable](vscode://settings/chat.customAgentInSubagent.enabled) [Insiders](vscode-insiders://settings/chat.customAgentInSubagent.enabled)
+- `memory`: required by Multi-Think. [Stable](vscode://settings/github.copilot.chat.tools.memory.enabled) [Insiders](vscode-insiders://settings/github.copilot.chat.tools.memory.enabled)
 
 ### Recommended Dependencies
 - Web Search for Copilot: provides better research capabilities. [Stable](vscode:extension/ms-vscode.vscode-websearchforcopilot) [Insiders](vscode-insiders:extension/ms-vscode.vscode-websearchforcopilot)
-- GitHub Pull Requests: provides PR information retrieval. [Stable](vscode:extension/GitHub.vscode-pull-request-github) [Insiders](vscode-insiders:extension/GitHub.vscode-pull-request-github)
-- [GitHub CLI](https://cli.github.com/) (`gh`): an alternative to the `GitHub Pull Requests` extension.
+- GitHub MCP Server: provides MCP access to pull requests. [Stable](vscode://settings/github.copilot.chat.githubMcpServer.enabled) [Insiders](vscode-insiders://settings/github.copilot.chat.githubMcpServer.enabled)
+- GitHub MCP Server (Read-Only): enables read features only. [Stable](vscode://settings/github.copilot.chat.githubMcpServer.readonly) [Insiders](vscode-insiders://settings/github.copilot.chat.githubMcpServer.readonly)
+- GitHub Pull Requests: an alternative to the GitHub MCP Server. [Stable](vscode:extension/GitHub.vscode-pull-request-github) [Insiders](vscode-insiders:extension/GitHub.vscode-pull-request-github)
+- [GitHub CLI](https://cli.github.com/) (`gh`): an alternative to the GitHub MCP Server.
 
 ## Installation
 ### Agents
@@ -69,6 +72,15 @@ A template `AGENTS.md` file providing general requirements for development.
 Please see [AGENTS.md](https://agents.md/) for basic usage.
 
 ## Notes
+### Known Issues
+The development is mainly done with VS Code Insiders because many of the features used are actively being developed/experimented there.
+Please note, and take necessary actions if needed, the following issues when using with Stable:
+- The reference of `memory` feature is `#tool:memory` in Stable while it is `#tool:vscode/memory` in Insiders.
+    - Required action: Replace all occurrences of `#tool:vscode/memory` with `#tool:memory`.
+
+### Adjustments
+- If you want the agents to be executed as a subagent, change `disable-model-invocation: false`.
+
 ### Philosophy and Focus
 The agents and prompts should be professionally useful.
 
