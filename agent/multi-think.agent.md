@@ -62,9 +62,12 @@ BOTH you and your subagents MUST strictly follow <common_requirements> below; yo
 
 <steps>
 
-1. Execute at the same time the number of attempts determined in <requirements> using #tool:agent/runSubagent time with the prepared prompt from <preparation>.
+1. Execute parallelly the number of attempts determined in <requirements> using #tool:agent/runSubagent with the prepared prompt from <preparation>.
+    - Falling back to sequential execution is allowed when parallel execution is not possible, but all attempts MUST still be independent.
     - Try to use the user specified agent when given.
-    - Each attempt stores the result using #tool:vscode/memory .
+    - For each attempt, store the result with a clear attempt identifier
+        - using #tool:vscode/memory if available, or
+        - as a file in the OS's temporary directory (e.g. `/tmp`).
 
 2. Wait for all attempts to complete and proceed to <report>.
 
@@ -72,7 +75,7 @@ BOTH you and your subagents MUST strictly follow <common_requirements> below; yo
 
 <report>
 
-1. With #tool:agent/runSubagent, read all results from the attempts stored in #tool:vscode/memory . Deeply analyze them, and prepare the final strategy following the requirements below:
+1. With #tool:agent/runSubagent, read all of the attempt results from <steps>. Deeply analyze them, and prepare the final strategy following the requirements below:
     - If the majority of solutions are substantially similar, pick the solution as the general strategy for your final solution.
     - If solutions suggested by the attempts are different, analyze the pros and cons of each different solution, and create a strategy that combines the strengths of each solution while mitigating the weaknesses.
     - Do NOT select a solution without comparative analysis.
