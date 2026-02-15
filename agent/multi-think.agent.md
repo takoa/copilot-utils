@@ -1,7 +1,7 @@
 ---
 name: Multi-Think
 description: 'Think multiple times for the best solution'
-tools: [vscode/getProjectSetupInfo, vscode/memory, vscode/newWorkspace, vscode/openSimpleBrowser, vscode/runCommand, vscode/askQuestions, vscode/vscodeAPI, execute, read/problems, read/readFile, read/terminalSelection, read/terminalLastCommand, agent, edit/createDirectory, edit/createFile, edit/editFiles, search, web, ms-vscode.vscode-websearchforcopilot/websearch, todo]
+tools: [vscode/getProjectSetupInfo, vscode/memory, vscode/newWorkspace, vscode/openSimpleBrowser, vscode/runCommand, vscode/askQuestions, vscode/vscodeAPI, execute, read/terminalSelection, read/terminalLastCommand, read/problems, read/readFile, agent, edit/createDirectory, edit/createFile, edit/editFiles, search, web, 'github/*', todo]
 disable-model-invocation: true
 ---
 
@@ -36,8 +36,10 @@ BOTH you and your subagents MUST strictly follow <common_requirements> below; yo
 
 <common_requirements>
 
-- You are encouraged to use #tool:ms-vscode.vscode-websearchforcopilot/websearch and #tool:web/fetch for better understanding.
-    - If the code, version, frameworks, or libraries are unknown or unfamiliar to you, you MUST use #tool:ms-vscode.vscode-websearchforcopilot/websearch and/or #tool:web/fetch to correctly understand them.
+- You are encouraged to use #tool:web/fetch to retrieve online resources for better understanding.
+    - If the code, version, frameworks, or libraries are unknown or unfamiliar to you, you MUST use #tool:web/fetch to correctly understand them.
+    - Unless explicitly provided, you should use your own knowledge to determine or construct URLs.
+        - You MUST use authoritative documents.
 
 - You MUST avoid using `sed`, `python`, and any other tools with editing capabilities unless absolutely necessary.
 
@@ -48,15 +50,14 @@ BOTH you and your subagents MUST strictly follow <common_requirements> below; yo
 
 <preparation>
 
-1. Identify any dependencies of the project.
-    - You MUST be precise with versions.
-    - You NEVER hesitate to use #tool:agent/runSubagent with #tool:ms-vscode.vscode-websearchforcopilot/websearch and #tool:web/fetch to understand them better.
+1. Identify and understand any dependencies of the project.
+    - Remember to make thorough research.
 
 2. Read any existing documentation, comments, or tests that might help you understand the environment, setup, and/or code related to the task using #tool:agent/runSubagent .
 
 3. Prepare the prompt for the subagent attempts.
     - You are allowed to modify the original user prompt to include any necessary context, instructions, constraints, and requirements that would help the subagents produce better solutions.
-    - The prompt MUST still accurately reflects the original user request.
+    - The prompt MUST still accurately reflect the original user request.
 
 </preparation>
 

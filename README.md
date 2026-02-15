@@ -16,7 +16,6 @@ The agents and prompts in this project attempt to address these challenges while
 - `memory`: required by Multi-Think. [Stable](vscode://settings/github.copilot.chat.tools.memory.enabled) [Insiders](vscode-insiders://settings/github.copilot.chat.tools.memory.enabled)
 
 ### Recommended Dependencies
-- Web Search for Copilot: provides better research capabilities. [Stable](vscode:extension/ms-vscode.vscode-websearchforcopilot) [Insiders](vscode-insiders:extension/ms-vscode.vscode-websearchforcopilot)
 - GitHub MCP Server: provides MCP access to pull requests. [Stable](vscode://settings/github.copilot.chat.githubMcpServer.enabled) [Insiders](vscode-insiders://settings/github.copilot.chat.githubMcpServer.enabled)
 - GitHub MCP Server (Read-Only): enables read features only. [Stable](vscode://settings/github.copilot.chat.githubMcpServer.readonly) [Insiders](vscode-insiders://settings/github.copilot.chat.githubMcpServer.readonly)
 - GitHub Pull Requests: an alternative to the GitHub MCP Server. [Stable](vscode:extension/GitHub.vscode-pull-request-github) [Insiders](vscode-insiders:extension/GitHub.vscode-pull-request-github)
