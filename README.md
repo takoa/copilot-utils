@@ -12,13 +12,21 @@ If you are engineering professionally, chances are you do not want those AI-cent
 The agents and prompts in this project attempt to address these challenges while adding more value to GitHub Copilot.
 
 ## Dependencies
-- Custom Agents in Subagents: [Stable](vscode://settings/chat.customAgentInSubagent.enabled) [Insiders](vscode-insiders://settings/chat.customAgentInSubagent.enabled)
-- `memory`: required by Multi-Think. [Stable](vscode://settings/github.copilot.chat.tools.memory.enabled) [Insiders](vscode-insiders://settings/github.copilot.chat.tools.memory.enabled)
+- Custom Agents in Subagents: 
+    - Stable: vscode://settings/chat.customAgentInSubagent.enabled
+    - Insiders: vscode-insiders://settings/chat.customAgentInSubagent.enabled
+- `memory`: required by Multi-Think.
+    - Stable: vscode://settings/github.copilot.chat.tools.memory.enabled
+    - Insiders: vscode-insiders://settings/github.copilot.chat.tools.memory.enabled
 
 ### Recommended Dependencies
-- GitHub MCP Server: provides MCP access to pull requests. [Stable](vscode://settings/github.copilot.chat.githubMcpServer.enabled) [Insiders](vscode-insiders://settings/github.copilot.chat.githubMcpServer.enabled)
-- GitHub MCP Server (Read-Only): enables read features only. [Stable](vscode://settings/github.copilot.chat.githubMcpServer.readonly) [Insiders](vscode-insiders://settings/github.copilot.chat.githubMcpServer.readonly)
-- GitHub Pull Requests: an alternative to the GitHub MCP Server. [Stable](vscode:extension/GitHub.vscode-pull-request-github) [Insiders](vscode-insiders:extension/GitHub.vscode-pull-request-github)
+- GitHub MCP Server: provides MCP access to pull requests.
+    - Stable: vscode://settings/github.copilot.chat.githubMcpServer.enabled
+    - Insiders: vscode-insiders://settings/github.copilot.chat.githubMcpServer.enabled
+- GitHub MCP Server (Read-Only): enables read features only.
+    - Stable: vscode://settings/github.copilot.chat.githubMcpServer.readonly
+    - Insiders: vscode-insiders://settings/github.copilot.chat.githubMcpServer.readonly
+- [GitHub Pull Requests](https://marketplace.visualstudio.com/items?itemName=GitHub.vscode-pull-request-github): an alternative to the GitHub MCP Server.
 - [GitHub CLI](https://cli.github.com/) (`gh`): an alternative to the GitHub MCP Server.
 
 ## Installation
