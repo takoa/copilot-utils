@@ -3,90 +3,86 @@
 A collection of engineer-friendly, less invasive, model-agnostic prompts and custom agents for a better GitHub Copilot experience.
 
 ## Why?
+
 This project aims to provide flexible, low-friction agents and prompts that better integrate into **your** workflows.
 
-While there are many agents and prompts available for GitHub Copilot (and other agents), many impose their own methodologies: some optimized for specific models, some for fully automated coding, some demanding entirely new workflows, etc.
+You get:
+- **Utility prompts and agents** designed for developers.
+- **Flexible integration** that does not disrupt your existing workflow.
 
-If you are engineering professionally, chances are you do not want those AI-centric changes. You want your agents to improve your established workflows. You want your agentic workflows, which you have already figured out on your own, to be enhanced. You do not want to throw everything away for something new while what you already have is working.
+You don't get:
+- *A complete LLM suite* entirely replacing your existing workflows.
+- *Full automation*.
 
-The agents and prompts in this project attempt to address these challenges while adding more value to GitHub Copilot.
+## Features
 
-## Dependencies
-- Custom Agents in Subagents: 
-    - Stable: vscode://settings/chat.customAgentInSubagent.enabled
-    - Insiders: vscode-insiders://settings/chat.customAgentInSubagent.enabled
-- `memory`: required by Multi-Think.
-    - Stable: vscode://settings/github.copilot.chat.tools.memory.enabled
-    - Insiders: vscode-insiders://settings/github.copilot.chat.tools.memory.enabled
-
-### Recommended Dependencies
-- GitHub MCP Server: provides MCP access to pull requests.
-    - Stable: vscode://settings/github.copilot.chat.githubMcpServer.enabled
-    - Insiders: vscode-insiders://settings/github.copilot.chat.githubMcpServer.enabled
-- GitHub MCP Server (Lockdown)
-    - Stable: vscode://settings/github.copilot.chat.githubMcpServer.lockdown
-    - Insiders: vscode-insiders://settings/github.copilot.chat.githubMcpServer.lockdown
-- [GitHub Pull Requests](https://marketplace.visualstudio.com/items?itemName=GitHub.vscode-pull-request-github): an alternative to the GitHub MCP Server.
-- [GitHub CLI](https://cli.github.com/) (`gh`): an alternative to the GitHub MCP Server.
-
-## Installation
-### Agents
-#### Global Installation
-Copy the agent files you want to use to:
-- Windows (WSL2 included):
-    - Stable: `%APPDATA%\Code\User\prompts`
-    - Insiders: `%APPDATA%\Code - Insiders\User\prompts`
-
-Alternatively, you can use the Command Palette (`Ctrl+Shift+P`, `Cmd+Shift+P`, or `F1`) and select `New Custom Agent...`, then copy-paste the content.
-
-#### Workspace Installation
-Copy the agent files you want to use to `.github/agents/`.
-
-### Prompts
-#### Global Installation
-Copy the prompt files you want to use to:
-- Windows (WSL2 included):
-    - Stable: `%APPDATA%\Code\User\prompts`
-    - Insiders: `%APPDATA%\Code - Insiders\User\prompts`
-
-Alternatively, you can use the Command Palette (`Ctrl+Shift+P`, `Cmd+Shift+P`, or `F1`) and select `New Prompt File...`, then copy-paste the content.
-
-#### Workspace Installation
-Copy the prompt files you want to use to `.github/prompts/`.
-
-### Others
-#### AGENTS.md
-Copy this file to your repository without changing the file name.
-
-## Abilities
 ### Agents
 
-- **Orchestrator**: tackles the given task by researching, planning and delegating subtasks to appropriate subagents.
-- **Review**: performs a thorough code review by inspecting diffs of the current branch and producing triaged reports.
-    - *Note: This agent cannot run as a subagent because it is an "overkill" unless you specifically want a review.*
-- **Multi-Think**: (*experimental*) executes multiple subagents (default: three) independently with the same prompt, then analyzes and synthesizes their outputs to produce a high-quality final result.
-    - This process may be time-consuming if it fails to execute the subagents in parallel.
-    - *Note: This agent cannot run as a subagent because subagents currently cannot spawn further subagents.*
+| Agent            | Runs as Subagent | Description |
+| :---             | :---             | :--- |
+| **@orchestrate** | ✅              | Researches, plans, and delegates complex tasks to specialized subagents. |
+| **@review**      | ❌              | Performs a comprehensive code review by inspecting diffs and generating triaged reports. |
+| **@multi-think** | ❌              | Runs multiple parallel subagents to analyze a problem and synthesize a high-quality solution. |
 
 ### Prompts
 
-- **/merge-comment**: generates a squash-merge commit message for the active pull request. No more default messages of commit titles!
-- **/onboard**: generates or updates instruction files documenting dependencies, structure, workflows, and conventions in `/.instructions`, and adds references to them in `AGENTS.md` and `.gitignore`.
-    - Creates the files if they do not exist.
+| Prompt | Description |
+| :--- | :--- |
+| **/merge-comment** | Generates a concise, informative squash-merge commit message for your active PR. |
+| **/onboard** | Creates or updates project documentation in `/.instructions` and configures `AGENTS.md`. |
 
 ### AGENTS.md
 A template `AGENTS.md` file providing general requirements for development.
 Please see [AGENTS.md](https://agents.md/) for basic usage.
 
-## Notes
-### Known Issues
-The development is mainly done with VS Code Insiders because many of the features used are actively being developed/experimented there.
-Please note, and take necessary actions if needed, the following issues when using with Stable:
-- The reference of `memory` feature is `#tool:memory` in Stable while it is `#tool:vscode/memory` in Insiders.
-    - Required action: Replace all occurrences of `#tool:vscode/memory` with `#tool:memory`.
+## Prerequisites
+Please open the URLs below to enable the necessary features in VS Code.
 
-### Adjustments
-- If you want the agents to be executed as a subagent, change `disable-model-invocation: false`.
+- **Custom Agents in Subagents**: 
+    - Stable: `vscode://settings/chat.customAgentInSubagent.enabled`
+    - Insiders: `vscode-insiders://settings/chat.customAgentInSubagent.enabled`
+- **Memory for Agents**: used by Multi-Think.
+    - Stable: `vscode://settings/github.copilot.chat.tools.memory.enabled`
+    - Insiders: `vscode-insiders://settings/github.copilot.chat.tools.memory.enabled`
+
+### Recommended Dependencies
+- **GitHub MCP Server**: provides MCP access to pull requests.
+    - Stable: `vscode://settings/github.copilot.chat.githubMcpServer.enabled`
+    - Insiders: `vscode-insiders://settings/github.copilot.chat.githubMcpServer.enabled`
+- **GitHub MCP Server (Lockdown)**
+    - Stable: `vscode://settings/github.copilot.chat.githubMcpServer.lockdown`
+    - Insiders: `vscode-insiders://settings/github.copilot.chat.githubMcpServer.lockdown`
+- [**GitHub Pull Requests**](https://marketplace.visualstudio.com/items?itemName=GitHub.vscode-pull-request-github): an alternative to the GitHub MCP Server.
+- [**GitHub CLI**](https://cli.github.com/) (`gh`): an alternative to the GitHub MCP Server.
+
+## Installation
+
+### Global Installation
+To make agents and prompts available across all your projects, copy the agent files you want to use to:
+- Windows (WSL2 included):
+    - Stable: `%APPDATA%\Code\User\prompts`
+    - Insiders: `%APPDATA%\Code - Insiders\User\prompts`
+
+> Alternatively, you can use the Command Palette (`Ctrl+Shift+P`, `Cmd+Shift+P`, or `F1`) and select `New Custom Agent...`, then copy-paste the content.
+
+### Workspace Installation
+Use this method to share agents and prompts with your team for a specific project.
+
+1. Create `.github/agents/` and `.github/prompts/` directories in your repository.
+2. Copy the desired `.agent.md` and/or `.prompt.md` files into the appropriate directories.
+
+## Notes
+### Development
+The development is mainly done with VS Code Insiders because many of the features used are actively being developed/experimented there.
+
+### Known Issues
+- **Insiders vs Stable**: some VS Code features may only be available in Insiders, or have different names in Stable.
+    - **Tool Name Mismatches**: please update the tool names if you want to use the agents and prompts in Stable.
+
+        | Name   | Stable         | Insiders              |
+        | :---   | :---           | :---                  |
+        | Memory | `#tool:memory` | `#tool:vscode/memory` |
+
 
 ### Philosophy and Focus
 The agents and prompts should be professionally useful.
