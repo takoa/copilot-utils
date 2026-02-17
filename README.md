@@ -23,9 +23,9 @@ The agents and prompts in this project attempt to address these challenges while
 - GitHub MCP Server: provides MCP access to pull requests.
     - Stable: vscode://settings/github.copilot.chat.githubMcpServer.enabled
     - Insiders: vscode-insiders://settings/github.copilot.chat.githubMcpServer.enabled
-- GitHub MCP Server (Read-Only): enables read features only.
-    - Stable: vscode://settings/github.copilot.chat.githubMcpServer.readonly
-    - Insiders: vscode-insiders://settings/github.copilot.chat.githubMcpServer.readonly
+- GitHub MCP Server (Lockdown)
+    - Stable: vscode://settings/github.copilot.chat.githubMcpServer.lockdown
+    - Insiders: vscode-insiders://settings/github.copilot.chat.githubMcpServer.lockdown
 - [GitHub Pull Requests](https://marketplace.visualstudio.com/items?itemName=GitHub.vscode-pull-request-github): an alternative to the GitHub MCP Server.
 - [GitHub CLI](https://cli.github.com/) (`gh`): an alternative to the GitHub MCP Server.
 
