@@ -55,7 +55,9 @@ BOTH you and your subagents MUST strictly follow <common_requirements> below; yo
 
 1a. When the user specifies the scope of the review, like requesting a review on certain files or directories, or from certain aspects, identify the diffs related to the request using #tool:agent/runSubagent, `git`, #tool:search/changes, #tool:read/readFile, and any applicable tools available.
 
-1b. When the user does not specify the scope of review, the scope is all of the diffs from the base commit of the current branch; use #tool:agent/runSubagent, `git`, #tool:read/readFile, and any applicable tools available to identify them.
+1b. When the user does not specify the scope of the review, use #tool:github/* to see if there is an active pull request for the branch:
+    - If there is, the scope is the diffs in the pull request. The base commit and branch should also be taken from the pull request.
+    - If there is not, the scope is all of the diffs from the base commit of the current branch; use #tool:agent/runSubagent, `git`, #tool:read/readFile, and any applicable tools available to identify them.
 
 Use this command to find the base branch and commit:
 ```
@@ -80,11 +82,13 @@ Do NOT attempt to figure out the base commit on your own with different commands
 
 5. Read any existing documentation, comments, or tests that might help you understand the environment, setup, and/or code related to the task using #tool:agent/runSubagent .
 
+6. If there is an active pull request for the branch and it has already been reviewed, include all of the unresolved review comments to your review scope.
+
 </preparation>
 
 <steps>
 
-1. Deeply analyze the diffs and related tests to identify a potential issue.
+1. Deeply analyze the diffs, comments, and related tests to identify a potential issue.
 
 2a. If you find a potential issue, create a specialized subagent using #tool:agent/runSubagent to deeply analyze it.
     - Provide the subagent with all necessary context and information. You MUST also pass <common_requirements> to the subagent.
