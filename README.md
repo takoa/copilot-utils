@@ -18,7 +18,7 @@ You don't get:
 | :---             | :---             | :--- |
 | **Orchestrate** | ✅              | Researches, plans, and delegates complex tasks to specialized subagents. |
 | **Review**      | ❌              | Performs a comprehensive code review by inspecting diffs and generating triaged reports. |
-| **Multi-Think** | ❌              | Runs multiple parallel subagents to analyze a problem and synthesize a high-quality solution. |
+| **Multi-Think** | ❌              | Runs multiple identical subagents in parallel to analyze a problem and synthesize a high-quality solution. |
 
 ### Prompts
 
