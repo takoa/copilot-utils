@@ -16,9 +16,9 @@ You don't get:
 
 | Agent            | Runs as Subagent | Description |
 | :---             | :---             | :--- |
-| **@orchestrate** | ✅              | Researches, plans, and delegates complex tasks to specialized subagents. |
-| **@review**      | ❌              | Performs a comprehensive code review by inspecting diffs and generating triaged reports. |
-| **@multi-think** | ❌              | Runs multiple parallel subagents to analyze a problem and synthesize a high-quality solution. |
+| **Orchestrate** | ✅              | Researches, plans, and delegates complex tasks to specialized subagents. |
+| **Review**      | ❌              | Performs a comprehensive code review by inspecting diffs and generating triaged reports. |
+| **Multi-Think** | ❌              | Runs multiple parallel subagents to analyze a problem and synthesize a high-quality solution. |
 
 ### Prompts
 
