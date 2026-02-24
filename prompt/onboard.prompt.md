@@ -43,5 +43,7 @@ To achieve the goal described above:
 - You MUST execute every #tool:todo item using #tool:agent/runSubagent .
 - You MUST NOT stop until the generation or updating is sufficiently completed.
 - You MUST ask the user for clarifications using #tool:vscode/askQuestions when necessary or blocked.
-- You MUST use #tool:ms-vscode.vscode-websearchforcopilot/websearch and/or #tool:web/fetch to understand any unfamiliar code, versions, frameworks, or libraries.
+- You MUST use #tool:web/fetch to understand any unfamiliar code, versions, frameworks, or libraries.
+    - Unless explicitly provided, you should use your own knowledge to determine or construct URLs.
+    - Try to use authoritative documents.
 - You MUST avoid using `sed`, `python`, and any other tools with editing capabilities unless absolutely necessary.

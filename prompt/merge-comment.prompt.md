@@ -7,7 +7,7 @@ Generate a squash merge comment for the active pull request (associated with the
 
 First, you MUST retrieve the diffs of the active pull request; attempt the following methods in order of priority:
 
-1. Use #tool:github.vscode-pull-request-github/activePullRequest to get the active pull request and obtain its final diffs.
+1. Use #tool:github/* to get the active pull request and obtain its final diffs.
 2. Use `gh` command to get the active pull request and obtain its final diffs.
 3. Use `git` to identify the diffs between the current branch and its base branch. If the base branch is not provided, use #tool:vscode/askQuestions to ask for it.
 
@@ -15,7 +15,7 @@ You MUST focus on the final diffs of the active pull request, not on all changes
 
 Once you have retrieved the final diffs, you MUST thoroughly analyze them. Then, generate a summary as a bulleted list following the guidelines below:
 - Keep items as short as possible and strictly under 10 words.
-    - Prefer common words (like "add", "update", "edit", etc.) and common signs ("+", "-", etc).
+    - Prefer common words (like "add", "update", "edit", etc.) and common signs ("+", "-", etc.)
 - Keep the number of items minimal while covering all significant changes.
 - Group related changes into a single item when possible.
     - Good example: Add /new/path spec, implementation & tests
@@ -36,7 +36,9 @@ To achieve the goal described above:
 - You MUST execute every #tool:todo item using #tool:agent/runSubagent .
 - You MUST NOT stop until the generation or updating is sufficiently completed.
 - You MUST ask the user for clarifications using #tool:vscode/askQuestions when necessary or blocked.
-- You MUST use #tool:ms-vscode.vscode-websearchforcopilot/websearch and/or #tool:web/fetch to understand any unfamiliar code, versions, frameworks, or libraries.
+- You MUST use #tool:web/fetch to understand any unfamiliar code, versions, frameworks, or libraries.
+    - Unless explicitly provided, you should use your own knowledge to determine or construct URLs.
+    - Try to use authoritative documents.
 - You MUST avoid using `sed`, `python`, and any other tools with editing capabilities unless absolutely necessary.
 - You NEVER create new files or modify existing files.
-    - Use #tool:memory if you absolutely need to save temporary data.
+    - Use #tool:vscode/memory if you absolutely need to save temporary data.
