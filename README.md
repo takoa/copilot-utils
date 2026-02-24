@@ -2,10 +2,6 @@
 
 A collection of engineer-friendly, less invasive, model-agnostic prompts and custom agents for a better GitHub Copilot experience.
 
-## Why?
-
-This project aims to provide flexible, low-friction agents and prompts that better integrate into **your** workflows.
-
 You get:
 - **Utility prompts and agents** designed for developers.
 - **Flexible integration** that does not disrupt your existing workflow.
