@@ -82,7 +82,8 @@ The development is mainly done with VS Code Insiders because many of the feature
         | Name   | Stable         | Insiders              |
         | :---   | :---           | :---                  |
         | Memory | `#tool:memory` | `#tool:vscode/memory` |
-
+- `Explorer` agent is disabled by default. It is because the agent is called as a subagent very often while its model is fixed to `Claude Haiku 4.5`, resulting in a high probability of affecting the overall quality of the parent agent.
+    - This also automatically disables any other custom agents you added yourself. Please expand the `agents` field as needed.
 
 ### Philosophy and Focus
 The agents and prompts should be professionally useful.
