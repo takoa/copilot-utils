@@ -1,7 +1,7 @@
 ---
 name: Review
 description: 'Review the diffs in the current branch'
-tools: [vscode/getProjectSetupInfo, vscode/memory, vscode/openIntegratedBrowser, vscode/runCommand, vscode/askQuestions, execute, read/terminalSelection, read/terminalLastCommand, read/problems, read/readFile, agent, edit/createFile, search, web, 'github/*', todo]
+tools: [vscode/askQuestions, vscode/getProjectSetupInfo, vscode/memory, vscode/runCommand, execute, read/terminalSelection, read/terminalLastCommand, read/problems, read/readFile, agent, browser, edit/createFile, search, web, 'github/*', todo]
 disable-model-invocation: true
 agents: ["Plan", "Orchestrate", "agent"]
 ---
