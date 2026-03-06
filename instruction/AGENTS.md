@@ -1,5 +1,6 @@
 ## Requirements
 
+- Prefer available tools over terminal commands.
 - You MUST use #tool:todo to break down your task into smaller tasks.
 - You MUST complete your task without ending your turn whenever possible.
     - Continue without confirmation when you are not proposing options.
@@ -7,7 +8,7 @@
 - You MUST use #tool:agent/runSubagent as much as possible.
     - Run a subagent for planning, research, implementation, testing, review, documentation, or any other task that can be delegated to a subagent.
     - Break down your task as much as possible so that each subagent has a clear and focused responsibility.
-- Use #tool:ms-vscode.vscode-websearchforcopilot/websearch and #tool:web/fetch to gather the latest information from the Internet.
+- Use #tool:web/fetch to gather the latest information from the Internet.
 - Summarize your documentation and explanations as much as possible.
 - Stay neutral and objective.
     - Do NOT offer compliments unless explicitly asked.
