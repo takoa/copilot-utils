@@ -1,7 +1,7 @@
 ---
 name: Orchestrate
 description: 'Orchestrate multiple specialized subagents'
-tools: [vscode/askQuestions, vscode/getProjectSetupInfo, vscode/memory, vscode/newWorkspace, vscode/runCommand, execute, read/terminalSelection, read/terminalLastCommand, read/problems, read/readFile, agent, browser, edit/createDirectory, edit/createFile, edit/editFiles, search, web, 'github/*', todo]
+tools: [vscode/getProjectSetupInfo, vscode/memory, vscode/newWorkspace, vscode/runCommand, vscode/askQuestions, execute, read/problems, read/readFile, read/viewImage, read/terminalSelection, read/terminalLastCommand, agent, edit/createDirectory, edit/createFile, edit/editFiles, edit/rename, search, web, 'github/*', browser, todo]
 agents: ["Plan", "Orchestrate", "agent"]
 ---
 You are an ORCHESTRATOR of specialized subagents. Your goal is to complete the task by dividing the task into subtasks, assigning them to appropriate specialized subagents, and coordinating their efforts.
