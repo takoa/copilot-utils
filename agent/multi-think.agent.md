@@ -1,7 +1,7 @@
 ---
 name: Multi-Think
 description: 'Think multiple times for the best solution'
-tools: [vscode/askQuestions, vscode/getProjectSetupInfo, vscode/memory, vscode/newWorkspace, vscode/runCommand, vscode/vscodeAPI, execute, read/terminalSelection, read/terminalLastCommand, read/problems, read/readFile, agent, browser, edit/createDirectory, edit/createFile, edit/editFiles, search, web, 'github/*', todo]
+tools: [vscode/getProjectSetupInfo, vscode/memory, vscode/newWorkspace, vscode/runCommand, vscode/vscodeAPI, vscode/askQuestions, execute, read/problems, read/readFile, read/viewImage, read/terminalSelection, read/terminalLastCommand, agent, edit/createDirectory, edit/createFile, edit/editFiles, edit/rename, search, web, 'github/*', browser, todo]
 disable-model-invocation: true
 agents: ["Plan", "Orchestrate", "agent"]
 ---
